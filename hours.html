@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hours Calculator</title>
+  <script>
+    function calculateHours() {
+      let hours = parseFloat(document.getElementById("hours").value);
+      let minutes = hours * 60;
+      let seconds = hours * 3600;
+      document.getElementById("result").innerText = 
+        hours + " hours = " + minutes + " minutes = " + seconds + " seconds";
+    }
+  </script>
+</head>
+<body>
+  <h2>Hours Calculator</h2>
+  <label>Enter Hours: </label><input type="number" id="hours"><br><br>
+  <button onclick="calculateHours()">Convert</button>
+  <p id="result"></p>
+</body>
+</html>

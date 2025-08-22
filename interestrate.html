@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interest Rate Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    input { width: 100%; padding: 8px; margin: 5px 0; }
+    button { padding: 10px; width: 100%; margin-top: 10px; cursor: pointer; }
+    .result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Interest Rate Calculator</h2>
+    <label>Principal ($):</label>
+    <input type="number" id="principal">
+    <label>Final Amount ($):</label>
+    <input type="number" id="amount">
+    <label>Years:</label>
+    <input type="number" id="years">
+    <button onclick="calculateRate()">Calculate</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateRate() {
+      let P = parseFloat(document.getElementById("principal").value);
+      let A = parseFloat(document.getElementById("amount").value);
+      let t = parseInt(document.getElementById("years").value);
+
+      let r = Math.pow(A / P, 1 / t) - 1;
+
+      document.getElementById("result").innerText = "Annual Interest Rate: " + (r * 100).toFixed(2) + "%";
+    }
+  </script>
+</body>
+</html>

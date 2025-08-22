@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Standard Deviation Calculator</title>
+</head>
+<body>
+  <h2>Standard Deviation Calculator</h2>
+  <input type="text" id="numbers" placeholder="Enter numbers separated by comma"><br><br>
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      let nums = document.getElementById("numbers").value.split(",").map(Number);
+      let mean = nums.reduce((a, b) => a + b, 0) / nums.length;
+      let variance = nums.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / nums.length;
+      let stddev = Math.sqrt(variance);
+      document.getElementById("result").innerText = "Standard Deviation: " + stddev.toFixed(2);
+    }
+  </script>
+</body>
+</html>

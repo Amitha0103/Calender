@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Concrete Calculator</title>
+  <script>
+    function calculateConcrete() {
+      let length = parseFloat(document.getElementById("length").value);
+      let width = parseFloat(document.getElementById("width").value);
+      let depth = parseFloat(document.getElementById("depth").value);
+
+      let volume = length * width * depth;
+      document.getElementById("result").innerText = "Concrete Volume: " + volume + " cubic meters";
+    }
+  </script>
+</head>
+<body>
+  <h2>Concrete Calculator</h2>
+  <label>Length (m): </label><input type="number" id="length"><br><br>
+  <label>Width (m): </label><input type="number" id="width"><br><br>
+  <label>Depth (m): </label><input type="number" id="depth"><br><br>
+  <button onclick="calculateConcrete()">Calculate</button>
+  <p id="result"></p>
+</body>
+</html>

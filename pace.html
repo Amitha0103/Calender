@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pace Calculator</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 8px 0; padding: 8px; width: 200px; }
+    #result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Pace Calculator</h2>
+  <label>Distance (km):</label>
+  <input type="number" id="distance"><br>
+  <label>Time (minutes):</label>
+  <input type="number" id="time"><br>
+  <button onclick="calculate()">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      let d = document.getElementById("distance").value;
+      let t = document.getElementById("time").value;
+      if (d > 0) {
+        let pace = t / d;
+        document.getElementById("result").innerText = "Pace: " + pace.toFixed(2) + " min/km";
+      } else {
+        document.getElementById("result").innerText = "Enter valid distance.";
+      }
+    }
+  </script>
+</body>
+</html>

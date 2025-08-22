@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Loan Calculator</title>
+</head>
+<body>
+  <h2>Auto Loan Calculator</h2>
+  <label>Car Price: <input type="number" id="carPrice"></label><br>
+  <label>Down Payment: <input type="number" id="downPayment"></label><br>
+  <label>Interest Rate (%): <input type="number" id="autoRate"></label><br>
+  <label>Years: <input type="number" id="autoYears"></label><br>
+  <button onclick="calculateAutoLoan()">Calculate</button>
+  <p id="autoLoanResult"></p>
+  <a href="index1.html">⬅ Back to All Calculators</a>
+
+  <script>
+    function calculateAutoLoan() {
+      let price = parseFloat(document.getElementById('carPrice').value);
+      let down = parseFloat(document.getElementById('downPayment').value);
+      let loanAmount = price - down;
+      let rate = parseFloat(document.getElementById('autoRate').value) / 100 / 12;
+      let months = parseFloat(document.getElementById('autoYears').value) * 12;
+      let emi = (loanAmount * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+      document.getElementById('autoLoanResult').innerText = "Monthly Payment: " + emi.toFixed(2);
+    }
+  </script>
+</body>
+</html>

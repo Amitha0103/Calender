@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Calculator</title>
+</head>
+<body>
+  <h2>Calorie Calculator</h2>
+  <label>Age: <input type="number" id="age"></label><br>
+  <label>Gender: 
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </label><br>
+  <label>Weight (kg): <input type="number" id="weight"></label><br>
+  <label>Height (cm): <input type="number" id="height"></label><br>
+  <label>Activity Level:
+    <select id="activity">
+      <option value="1.2">Sedentary</option>
+      <option value="1.375">Lightly active</option>
+      <option value="1.55">Moderately active</option>
+      <option value="1.725">Very active</option>
+      <option value="1.9">Extra active</option>
+    </select>
+  </label><br>
+  <button onclick="calculateCalories()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateCalories() {
+      let age = parseInt(document.getElementById("age").value);
+      let gender = document.getElementById("gender").value;
+      let weight = parseFloat(document.getElementById("weight").value);
+      let height = parseFloat(document.getElementById("height").value);
+      let activity = parseFloat(document.getElementById("activity").value);
+
+      let bmr = gender === "male"
+        ? 10*weight + 6.25*height - 5*age + 5
+        : 10*weight + 6.25*height - 5*age - 161;
+
+      let calories = bmr * activity;
+      document.getElementById("result").innerText = "Daily Calorie Needs: " + Math.round(calories) + " kcal";
+    }
+  </script>
+</body>
+</html>

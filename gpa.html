@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPA Calculator</title>
+  <script>
+    function calculateGPA() {
+      let grades = document.getElementById("grades").value.split(",").map(Number);
+      let total = grades.reduce((a, b) => a + b, 0);
+      let gpa = (total / grades.length).toFixed(2);
+      document.getElementById("result").innerText = "Your GPA is: " + gpa;
+    }
+  </script>
+</head>
+<body>
+  <h2>GPA Calculator</h2>
+  <label>Enter Grades (comma separated): </label>
+  <input type="text" id="grades"><br><br>
+  <button onclick="calculateGPA()">Calculate</button>
+  <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Tax Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    input { width: 100%; padding: 8px; margin: 5px 0; }
+    button { padding: 10px; width: 100%; margin-top: 10px; cursor: pointer; }
+    .result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sales Tax Calculator</h2>
+    <label>Item Price ($):</label>
+    <input type="number" id="price">
+    <label>Sales Tax Rate (%):</label>
+    <input type="number" id="rate">
+    <button onclick="calculateTax()">Calculate</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateTax() {
+      let price = parseFloat(document.getElementById("price").value);
+      let r = parseFloat(document.getElementById("rate").value) / 100;
+
+      let tax = price * r;
+      let total = price + tax;
+
+      document.getElementById("result").innerHTML = 
+        "Sales Tax: $" + tax.toFixed(2) + "<br>" +
+        "Total Price: $" + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>

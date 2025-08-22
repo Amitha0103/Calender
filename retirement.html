@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retirement Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .container { max-width: 400px; margin: auto; }
+    label, input, button { display: block; margin: 10px 0; }
+    button { padding: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Retirement Calculator</h2>
+    <label>Monthly Savings:</label>
+    <input type="number" id="savings" placeholder="Enter monthly savings">
+
+    <label>Years until Retirement:</label>
+    <input type="number" id="years" placeholder="Enter years">
+
+    <label>Annual Interest Rate (%):</label>
+    <input type="number" id="rate" placeholder="Enter interest rate">
+
+    <button onclick="calculateRetirement()">Calculate</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    function calculateRetirement() {
+      let savings = parseFloat(document.getElementById("savings").value);
+      let years = parseFloat(document.getElementById("years").value);
+      let rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
+      let months = years * 12;
+
+      let futureValue = savings * ((Math.pow(1 + rate, months) - 1) / rate);
+      document.getElementById("result").innerText = "Retirement Fund: ₹" + futureValue.toFixed(2);
+    }
+  </script>
+</body>
+</html>

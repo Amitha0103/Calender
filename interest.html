@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Calculator</title>
+</head>
+<body>
+  <h2>Interest Calculator</h2>
+  <label>Principal: <input type="number" id="principal"></label><br>
+  <label>Rate (%): <input type="number" id="rate"></label><br>
+  <label>Time (years): <input type="number" id="time"></label><br>
+  <button onclick="calculateInterest()">Calculate</button>
+  <p id="interestResult"></p>
+  <a href="index1.html">⬅ Back to All Calculators</a>
+
+  <script>
+    function calculateInterest() {
+      let p = parseFloat(document.getElementById('principal').value);
+      let r = parseFloat(document.getElementById('rate').value);
+      let t = parseFloat(document.getElementById('time').value);
+      let si = (p * r * t) / 100;
+      document.getElementById('interestResult').innerText = "Simple Interest: " + si.toFixed(2);
+    }
+  </script>
+</body>
+</html>
